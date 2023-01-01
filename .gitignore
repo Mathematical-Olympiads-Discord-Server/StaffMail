@@ -114,4 +114,4 @@ venv.bak/
 .mypy_cache/
 
 *.txt
-
+!requirements.txt
