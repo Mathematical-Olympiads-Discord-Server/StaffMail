@@ -11,7 +11,9 @@ with open('config/config.yml') as cfgfile:
 
 class MOBot(commands.Bot):
     def __init__(self, prefix):
-        super().__init__(prefix)
+        intents = discord.Intents.all()
+        
+        super().__init__(prefix, intents=intents)
         self.config = config
         logging.basicConfig(level=logging.INFO, format='[%(name)s %(levelname)s] %(message)s')
         self.logger = logging.getLogger('bot')
@@ -32,7 +34,7 @@ class MOBot(commands.Bot):
 
         for cog in self.config['cogs']:
             try:
-                self.load_extension(cog)
+                await self.load_extension(cog)
             except Exception:
                 self.logger.exception('Failed to load cog {}.'.format(cog))
             else:

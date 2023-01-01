@@ -124,5 +124,5 @@ class Mail(Cog):
 
 
 
-def setup(bot):
-    bot.add_cog(Mail(bot))
+async def setup(bot):
+    await bot.add_cog(Mail(bot))

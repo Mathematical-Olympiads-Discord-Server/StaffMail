@@ -170,5 +170,5 @@ class Roles(Cog):
             await ctx.send("That job does not exist")
 
 
-def setup(bot):
-    bot.add_cog(Roles(bot))
+async def setup(bot):
+    await bot.add_cog(Roles(bot))

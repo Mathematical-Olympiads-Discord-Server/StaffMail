@@ -142,6 +142,6 @@ class Core(Cog):
         await ctx.send(embed=embed)
 
 
-def setup(bot):
+async def setup(bot):
     bot.remove_command('help')
-    bot.add_cog(Core(bot))
+    await bot.add_cog(Core(bot))

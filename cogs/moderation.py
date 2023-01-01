@@ -84,7 +84,7 @@ class Moderation(Cog):
                               timestamp=old.created_at)
         if old.content:
             embed.add_field(name='Old content:', value=old.content[:1024])
-        embed.set_author(name=message.author.name, icon_url=message.author.avatar_url_as(format='png'))
+        embed.set_author(name=message.author.name, icon_url=message.author.avatar.replace(format='png'))
         await channel.send(embed=embed)
 
     @Cog.listener()
@@ -97,7 +97,7 @@ class Moderation(Cog):
                               colour=0xff0000,
                               description=message.content,
                               timestamp=message.created_at)
-        embed.set_author(name=message.author.name, icon_url=message.author.avatar_url_as(format='png'))
+        embed.set_author(name=message.author.name, icon_url=message.author.avatar.replace(format='png'))
         await channel.send(embed=embed)
 
     @Cog.listener()
@@ -136,5 +136,5 @@ class Moderation(Cog):
         await channel.send(message)
 
 
-def setup(bot):
-    bot.add_cog(Moderation(bot))
+async def setup(bot):
+    await bot.add_cog(Moderation(bot))
